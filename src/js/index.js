@@ -2,6 +2,8 @@
 //
 const searchInput = document.querySelector('#search-input');
 const productsDOM = document.querySelector('.products-center');
+// fetch link
+const myAPI = 'http://localhost:3000/items';
 let allProductsData = [];
 let filters = {
   searchItem: '',
@@ -9,7 +11,7 @@ let filters = {
 
 document.addEventListener('DOMContentLoaded', () => {
   axios
-    .get('http://localhost:3000/items')
+    .get(myAPI)
     .then((response) => {
       allProductsData = response.data;
       // render products on DOM
@@ -23,7 +25,9 @@ function renderProducts(prod, fil) {
     return item.title.toLowerCase().includes(fil.searchItem.toLowerCase());
   });
   productsDOM.innerHTML = '';
-  console.log(filteredProducts);
+  // console.log(filteredProducts);
+  //
+
   // render to DOM
   filteredProducts.forEach((item, index) => {
     //  Create
@@ -50,6 +54,6 @@ function renderProducts(prod, fil) {
 searchInput.addEventListener('input', (event) => {
   //
   filters.searchItem = event.target.value;
-  console.log(filters.searchItem);
+  // console.log(filters.searchItem);
   renderProducts(allProductsData, filters);
 });

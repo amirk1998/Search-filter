@@ -18,11 +18,11 @@
           </form>
         </div>
         <div class="filter-box flex items-center justify-between w-full py-4 max-w-2xl" dir="ltr">
-          <a class="border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="" data-filter=""> All </a>
-          <a class="border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="" data-filter="Watch"> Watch </a>
-          <a class="border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="" data-filter="Shirt"> Shirt </a>
-          <a class="border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="" data-filter="Gown"> Gown </a>
-          <a class="border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="" data-filter="Jewelry"> Jewelry </a>
+          <a class="btn border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="#" data-filter=""> All </a>
+          <a class="btn border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="#" data-filter="watch"> Watch </a>
+          <a class="btn border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="#" data-filter="shirt"> Shirt </a>
+          <a class="btn border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="#" data-filter="gown"> Gown </a>
+          <a class="btn border border-violet-700 bg-violet-300 text-violet-700 hover:bg-violet-100 rounded-md text-base px-4" href="#" data-filter="jewelry"> Jewelry </a>
         </div>
       </div>
     </nav>
@@ -30,11 +30,22 @@
     <section class="products">
       <div class="products-center grid grid-cols-3 items-center justify-between gap-x-4 gap-y-8 px-8 py-4">
         <!-- Item -->
-        <div class="product"></div>
+        <div class="product hidden">
+          <div class="bg-white flex flex-col items-center rounded-lg px-2 pt-4 shadow-md max-w-sm">
+            <!-- Image -->
+            <div class="img-container mb-3 bg-gray-100 rounded-xl p-2 h-auto w-64">
+              <img class="w-full h-auto rounded-lg" src="" alt="test" />
+            </div>
+            <!-- Title and Price -->
+            <div class="product-desc flex items-center justify-around mb-3 text-base w-full">
+              <div class="product-title text-slate-800 font-medium"></div>
+              <div class="product-price text-violet-700 font-medium"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="module" src="/src/js/index.js"></script>
   </body>
-
-  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-  <script type="module" src="/src/js/index.js"></script>
 </html>

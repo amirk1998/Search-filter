@@ -2,6 +2,7 @@
 //
 const searchInput = document.querySelector('#search-input');
 const productsDOM = document.querySelector('.products-center');
+const btns = document.querySelectorAll('.btn');
 // fetch link
 const myAPI = 'http://localhost:3000/items';
 let allProductsData = [];
@@ -11,7 +12,7 @@ let filters = {
 
 document.addEventListener('DOMContentLoaded', () => {
   axios
-    .get(myAPI)
+    .get('http://localhost:3000/items')
     .then((response) => {
       allProductsData = response.data;
       // render products on DOM
@@ -37,7 +38,7 @@ function renderProducts(prod, fil) {
     productsDiv.innerHTML = ` <div class="bg-white flex flex-col items-center rounded-lg px-2 pt-4 shadow-md max-w-sm">
     <!-- Image -->
     <div class="img-container mb-3 bg-gray-100 rounded-xl p-2 h-auto w-64">
-      <img class="w-full h-auto rounded-lg" src= ${item.image} alt="p-${index}" />
+      <img class="w-full h-auto rounded-lg" src= ${item.image} alt="p-${index + 1}" />
     </div>
     <!-- Title and Price -->
     <div class="product-desc flex items-center justify-around mb-3 text-base w-full">
@@ -52,8 +53,17 @@ function renderProducts(prod, fil) {
 }
 
 searchInput.addEventListener('input', (event) => {
-  //
   filters.searchItem = event.target.value;
   // console.log(filters.searchItem);
   renderProducts(allProductsData, filters);
+});
+
+// filter base on group
+btns.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    const filterBtn = event.target.dataset.filter;
+    filters.searchItem = filterBtn;
+    // console.log(filterBtn);
+    renderProducts(allProductsData, filters);
+  });
 });

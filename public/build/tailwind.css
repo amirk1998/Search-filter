@@ -492,6 +492,9 @@ video {
 .grid {
   display: grid;
 }
+.hidden {
+  display: none;
+}
 .h-auto {
   height: auto;
 }
